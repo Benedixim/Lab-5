@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Table</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script type="text/javascript" src="../js/script.js" defer></script>
+</head>
+<body onload="loadTable()">
+	<div class="wrapper">
+		<form type="post" onsubmit="addGroup()">
+			<div id="mainInfo">
+				<h1 class="topText">Информация о классе</h1>
+				<div class="inputs">
+					<input type="number" min="1" max="11" class="classNum" id="classNumID" placeholder="Номер класса..." required>
+					<input type="number" class="amountOfStudents" id="amountOfStudentsID" placeholder="Количество учащихся..." max="30" min="1" required>
+					<input type="text" class="teacherName" id="teacherNameID" placeholder="ФИО классного руководителя..." 
+					pattern="[A-Za-zА-Яа-яЁё]{,50}" required>
+					<button type="submit">Отправить</button>
+					<button type="reset">Очистить</button>
+					 <button class="orange" type="button" id="addInfo" onclick="addNewProperties()">Другая информация</button>
+					
+				</div>
+			</div>
+			<div class="deleteBlock">
+				<label for="groupID" class="groupClass">Удалить запись с ID</label>
+	        	<select id="groupID" name="groupID"></select>
+	        	<button type="button" class="deleteBtn" onclick="deleteGroup(); loadTable()">Удалить</button>
+			</div>	
+			<div class="printBlock">
+				<button type="button" onclick="sortGroup()">Вывести данные</button>
+			</div>
+			 <table id="groupTable" border="0" cellpadding="5" style="width: 50%">
+                <tr id="groupProperties">
+                    <th>ID</th>
+                    <th>Номер класса</th>
+                    <th>Кол-во учащихся</th>
+                    <th>ФИО классного руководителя</th>
+                </tr>
+            </table>				
+		</form>
+	</div>
+</body>
+</html>

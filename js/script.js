@@ -64,7 +64,7 @@ function addGroup() {
 function insert(group, number) {
     db.transaction(function (t) {
         t.executeSql("INSERT INTO groups (number, lastname, quantity) VALUES (?,?,?)",
-            [group.group_number, group.get_lastname, group.get_student_quantity], null, null);
+            [group.group_number, group.get_lastname, group.get_student_quantity], success, error);
         if(group._phone!=undefined)
            t.executeSql("UPDATE groups set phone = ? where (number = ?)",
                 [group._phone, number], success, error);
